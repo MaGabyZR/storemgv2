@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.magabyzr</groupId>
-    <artifactId>storemg</artifactId>
+    <artifactId>storemgv2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>storemg</name>
-    <description>storemg</description>
+    <name>storemgv2</name>
+    <description>storemgv2</description>
     <url/>
     <licenses>
         <license/>
@@ -84,7 +84,7 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>10.20.1</version> <!-- Specify the version you want to use -->
                 <configuration>
-                    <url>jdbc:mysql://localhost:3306/storemg</url> <!-- Replace with your DB URL -->
+                    <url>jdbc:mysql://localhost:3306/storemgv2</url> <!-- Replace with your DB URL -->
                     <user>root</user> <!-- Replace with your DB username -->
                     <password>magaby2280@</password> <!-- Replace with your DB password -->
                     <locations>

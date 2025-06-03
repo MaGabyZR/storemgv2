@@ -1,4 +1,4 @@
-package com.magabyzr.storemg;
+package com.magabyzr.storemgv2;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;

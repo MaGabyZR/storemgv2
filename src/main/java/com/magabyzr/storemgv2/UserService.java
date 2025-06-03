@@ -1,13 +1,13 @@
-package com.magabyzr.storemg;
+package com.magabyzr.storemgv2;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    private final UserRepository userRepository;
-    private final NotificationService notificationService;
+    private final com.magabyzr.storemgv2.UserRepository userRepository;
+    private final com.magabyzr.storemgv2.NotificationService notificationService;
 
-    public UserService(UserRepository userRepository, NotificationService notificationService) {
+    public UserService(com.magabyzr.storemgv2.UserRepository userRepository, NotificationService notificationService) {
         this.userRepository = userRepository;
         this.notificationService = notificationService;
     }

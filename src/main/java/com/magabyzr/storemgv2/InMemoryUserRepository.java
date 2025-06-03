@@ -1,4 +1,4 @@
-package com.magabyzr.storemg;
+package com.magabyzr.storemgv2;
 
 import org.springframework.stereotype.Repository;
 

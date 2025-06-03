@@ -1,17 +1,12 @@
-package com.magabyzr.storemg;
+package com.magabyzr.storemgv2;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-
-@SpringBootApplication
-public class StoremgApplication {
-
+public class Storemgv2Application {
     public static void main(String[] args) {
-        ApplicationContext context = SpringApplication.run(StoremgApplication.class, args);
+        ApplicationContext context = SpringApplication.run(Storemgv2Application.class, args);
         var userService = context.getBean(UserService.class);
         userService.registerUser(new User(1L, "gaby@gmail.com", "12345", "MaGaby"));
     }
-
 }

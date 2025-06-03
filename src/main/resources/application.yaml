@@ -1,8 +1,8 @@
 spring:
   application:
-    name: storemg
+    name: storemgv2
   datasource:
-    url: jdbc:mysql://localhost:3306/storemg?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/storemgv2?createDatabaseIfNotExist=true
     username: root
     password: magaby2280@
 stripe:
