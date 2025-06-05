@@ -1,27 +1,35 @@
-package com.magabyzr.storemgv2;
+package com.magabyzr.storemgv2.entities;
 
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name = "users")
 public class User {
-    //attributes
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String email;
-    private String password;
+    @Column(nullable = false, name = "name")
     private String name;
+    @Column(nullable = false, name = "email")
+    private String email;
+    @Column(nullable = false, name = "password")
+    private String password;
 
-    //constructor
-    public User(Long id, String email, String password, String name) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.name = name;
-    }
-
-    //Getters and setters
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -40,14 +48,4 @@ public class User {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
-
-
-
