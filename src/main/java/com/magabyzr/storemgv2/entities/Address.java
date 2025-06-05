@@ -3,28 +3,29 @@ package com.magabyzr.storemgv2.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "addresses")
+
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "street")
+    private String street;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "city")
+    private String city;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "zip")
+    private String zip;
 
+    @Column(name = "state")
+    private String state;
 }
-
