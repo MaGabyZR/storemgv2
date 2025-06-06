@@ -1,6 +1,7 @@
 package com.magabyzr.storemgv2;
 
 import com.magabyzr.storemgv2.entities.Address;
+import com.magabyzr.storemgv2.entities.Profile;
 import com.magabyzr.storemgv2.entities.Tag;
 import com.magabyzr.storemgv2.entities.User;
 import org.springframework.boot.SpringApplication;
@@ -26,7 +27,14 @@ public class Storemgv2Application {
 
         user.addAddress(address);*/
 
-        user.addTag("tag1");
+        //user.addTag("tag1");
+
+        var profile = Profile.builder()
+                        .bio("Daniel blah blah blah")
+                                .build();
+
+        user.setProfile(profile);
+        profile.setUser(user);
 
         System.out.println(user);
 
