@@ -1,5 +1,8 @@
 package com.magabyzr.storemgv2.repositories;
 
+import com.magabyzr.storemgv2.dtos.ProductSummary;
+import com.magabyzr.storemgv2.dtos.ProductSummaryDTO;
+import com.magabyzr.storemgv2.entities.Category;
 import com.magabyzr.storemgv2.entities.Product;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -40,5 +43,8 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
   @Modifying
   @Query("update Product p set p.price = :newPrice where p.category.id = :categoryId")
   void updatePriceByCategory(BigDecimal newPrice, Byte categoryId);
+
+  //Using Projections.
+  List<ProductSummaryDTO> findByCategory(Category category);
 
   }
