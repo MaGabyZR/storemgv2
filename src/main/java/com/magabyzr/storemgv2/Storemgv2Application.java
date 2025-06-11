@@ -15,7 +15,7 @@ public class Storemgv2Application {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(Storemgv2Application.class, args);
         var service = context.getBean(UserService.class);
-        service.fetchProducts();
+        service.fetchUser();
 
 
 /*        var user = User.builder()
