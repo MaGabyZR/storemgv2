@@ -104,4 +104,14 @@ public class UserService {
         var user = userRepository.findByEmail("daniel@gmail.com").orElseThrow();
         System.out.println(user.getId());
     }
+
+    //To avoid the N+1 problem
+    @Transactional
+    public void fetchUsers(){
+        var users = userRepository.findAllWithTags();
+        users.forEach(u -> {
+            System.out.println(u);
+            u.getAddresses().forEach(System.out::println);
+        });
+    }
 }
