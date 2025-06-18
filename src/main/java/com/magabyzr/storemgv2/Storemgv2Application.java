@@ -15,7 +15,8 @@ public class Storemgv2Application {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(Storemgv2Application.class, args);
         var service = context.getBean(UserService.class);
-        service.printLoyalProfiles();
+        service.fetchProductsByCriteria();
+        //service.printLoyalProfiles();
         //service.fetchProducts();
         //service.fetchUser();
 

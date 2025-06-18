@@ -1,12 +1,15 @@
 package com.magabyzr.storemgv2.services;
 
 import com.magabyzr.storemgv2.entities.Address;
+import com.magabyzr.storemgv2.entities.Product;
 import com.magabyzr.storemgv2.entities.User;
 import com.magabyzr.storemgv2.repositories.*;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 
@@ -42,7 +45,6 @@ public class UserService {
             System.out.println("Persistent");
         else
             System.out.println("Transient / Detached");
-
 
     }
 
@@ -99,7 +101,27 @@ public class UserService {
     }*/
     @Transactional
     public void fetchProducts() {
-        var products = productRepository.findProducts(BigDecimal.valueOf(1), BigDecimal.valueOf(15));
+        //Query by example, and then pass it to our repository, and change it to JPARepository.
+        var product = new Product();
+        product.setName("product");
+
+        var matcher = ExampleMatcher.matching()
+                .withIncludeNullValues()
+                .withIgnorePaths("id")
+                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+
+        var example = Example.of(product, matcher);
+
+        var products = productRepository.findAll(example);
+        products.forEach(System.out::println);
+
+/*        var products = productRepository.findProducts(BigDecimal.valueOf(1), BigDecimal.valueOf(15));
+        products.forEach(System.out::println);*/    //Replaced by Query by example.
+    }
+
+    //Query using Criteria API.
+    public void fetchProductsByCriteria(){
+        var products = productRepository.findProductsByCriteria("prod", BigDecimal.valueOf(1), null);
         products.forEach(System.out::println);
     }
 
