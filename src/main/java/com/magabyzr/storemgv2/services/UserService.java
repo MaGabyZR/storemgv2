@@ -1,7 +1,6 @@
 package com.magabyzr.storemgv2.services;
 
 import com.magabyzr.storemgv2.entities.Address;
-import com.magabyzr.storemgv2.entities.Category;
 import com.magabyzr.storemgv2.entities.User;
 import com.magabyzr.storemgv2.repositories.*;
 import jakarta.persistence.EntityManager;
@@ -119,4 +118,11 @@ public class UserService {
             u.getAddresses().forEach(System.out::println);
         });
     }
+
+    @Transactional
+    public void printLoyalProfiles(){
+        var users = userRepository.findLoyalUsers(2);
+        users.forEach(p -> System.out.println(p.getId() + ": " + p.getEmail()));
+    }
+
 }
