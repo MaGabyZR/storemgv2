@@ -9,8 +9,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -160,6 +159,33 @@ public class UserService {
             System.out.println(u);
             u.getAddresses().forEach(System.out::println);
         });
+    }
+
+    //To use sorting.
+    public void fetchSortedProducts() {
+        //create a sort object.
+        var sort = Sort.by("name", "price").descending();
+        //or compose 2 objects together.
+        var sort2 = Sort.by("name").and(
+                Sort.by("price").descending()
+        );
+
+        productRepository.findAll(sort).forEach(System.out::println);
+    }
+
+    //To use pagination.
+    public void fetchPaginatedProducts(int pageNumber, int size) {
+        PageRequest pageRequest = PageRequest.of(pageNumber, size);
+        Page<Product> page = productRepository.findAll(pageRequest);
+
+        var products = page.getContent();
+        products.forEach(System.out::println);
+
+        var totalPages = page.getTotalPages();
+        System.out.println("Total pages: " + totalPages);
+
+        var totalElements = page.getTotalElements();
+        System.out.println("Total elements: " + totalElements);
     }
 
     @Transactional

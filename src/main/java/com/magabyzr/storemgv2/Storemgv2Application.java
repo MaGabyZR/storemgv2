@@ -17,7 +17,9 @@ public class Storemgv2Application {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(Storemgv2Application.class, args);
         var service = context.getBean(UserService.class);
-        service.fetchProductsBySpecifications("prod", null, null);
+        service.fetchPaginatedProducts(0, 10);
+        //service.fetchSortedProducts();
+        //service.fetchProductsBySpecifications("prod", null, null);
         //service.fetchProductsByCriteria();
         //service.printLoyalProfiles();
         //service.fetchProducts();
