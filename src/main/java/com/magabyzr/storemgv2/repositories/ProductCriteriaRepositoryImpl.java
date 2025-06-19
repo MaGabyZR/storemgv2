@@ -42,6 +42,7 @@ public class ProductCriteriaRepositoryImpl implements ProductCriteriaRepository 
 
         cq.select(root).where(predicates.toArray(new Predicate[predicates.size()]));
 
+        //construct the query and execute it, finally return a list of products.
         return entityManager.createQuery(cq).getResultList();
     }
 }

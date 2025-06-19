@@ -10,12 +10,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.math.BigDecimal;
+
 @SpringBootApplication
 public class Storemgv2Application {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(Storemgv2Application.class, args);
         var service = context.getBean(UserService.class);
-        service.fetchProductsByCriteria();
+        service.fetchProductsBySpecifications("prod", null, null);
+        //service.fetchProductsByCriteria();
         //service.printLoyalProfiles();
         //service.fetchProducts();
         //service.fetchUser();
